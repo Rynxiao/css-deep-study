@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>background origin</title>
+    <style>
+        .container {
+            margin-top: 10px;
+            height: 500px;
+            border: 10px dotted rgba(255, 0, 0, 0.3);
+            padding: 20px;
+            background: url('../images/ylj.jpeg') center left no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <div>Background-origin</div>
+    <div>
+        <select name="attachment" id="attachment">
+            <option value="scroll">scroll</option>
+            <option value="fixed">fixed</option>
+        </select>
+        <select name="origin" id="origin">
+            <option value="border-box">border-box</option>
+            <option value="padding-box">padding-box</option>
+            <option value="content-box">content-box</option>
+        </select>
+    </div>
+    <div class="container" id="container"></div>
+    <script>
+        var attachment = document.querySelector('#attachment');
+        var origin = document.querySelector('#origin');
+        var container = document.querySelector('#container');
+
+        origin.value = 'padding-box';
+
+        attachment.addEventListener('change', function(e) {
+            var target = e.target;
+            container.style.backgroundAttachment = target.value;
+        });
+
+        origin.addEventListener('change', function(e) {
+            var target = e.target;
+            container.style.backgroundOrigin = target.value;
+        });
+    </script>
+</body>
+</html>

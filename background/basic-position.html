@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>background position</title>
+    <style>
+        .area {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        .display {
+            margin-top: 10px;
+            border: 4px solid darkblue;
+            width: 200px;
+            height: 200px;
+            background: url('http://p0xmvstv1.bkt.clouddn.com/css/background/startransparent.gif') no-repeat;
+            background-color: #f5f5f5;
+        }
+        .sprite-imgs {
+            margin-bottom: 10px;
+            color: #999;
+        }
+        .sprite-imgs a {
+            color: #c88326;
+        }
+        .sprite-imgs .link_comments {
+            background-image: url('http://p0xmvstv1.bkt.clouddn.com/css/background/skin-type-icon-yellow.png');
+            background-repeat: no-repeat;
+            background-position: 0 -43px;
+            padding-left: 17px;
+        }
+        .sprite-imgs .link_view{
+            background-image: url('http://p0xmvstv1.bkt.clouddn.com/css/background/skin-type-icon-yellow.png');
+            background-repeat: no-repeat;
+            background-position: 0 -62px;
+            padding-left: 17px;
+        }
+    </style>
+</head>
+<body>
+    <div class="area">
+        <label>单个值</label><br/>
+        <select name="one" id="one">
+            <option value="top">top</option>
+            <option value="bottom">bottom</option>
+            <option value="left">left</option>
+            <option value="right">right</option>
+        </select>
+        <div class="display" id="oneDisplay"></div>
+    </div>
+    <div class="area">
+        <label>两个值(固定)</label><br/>
+        <select name="twox" id="twox">
+            <option value="left">left</option>
+            <option value="right">right</option>
+        </select>
+        <select name="twoy" id="twoy">
+            <option value="top">top</option>
+            <option value="bottom">bottom</option>
+        </select>
+        <div class="display" id="twoDisplay"></div>
+    </div>
+    <div class="area">
+        <label>两个值(一个固定，另一个数值)</label><br/>
+        <select name="twox2" id="twox2" value="left">
+            <option value="left">left</option>
+            <option value="right">right</option>
+            <option value="top">top</option>
+            <option value="bottom">bottom</option>
+        </select>
+        <input type="text" class="two-value" id="twoValue" value="0%">
+        <div class="display" id="twoDisplay2"></div>
+    </div>
+    <div class="area">
+        <label>两个值(数值)</label><br/>
+        <input type="text" class="two-value" id="twoValue1" value="0%">
+        <input type="text" class="two-value" id="twoValue2" value="0%">
+        <div class="display" id="twoDisplay3"></div>
+    </div>
+    <div class="implement">
+        <p>雪碧图在早期的网络应用中常被用到，主要为了减少发起客户端发起http请求，为同源加载和网页优化中常用的策略, 在现在的网页加载中，依然存在着大量的例子，例如CSDN：</p>
+        <pre><code>
+            .sprite-imgs .link_comments {
+                background-image: url('../images/skin-type-icon-yellow.png');
+                background-repeat: no-repeat;
+                background-position: 0 -43px;
+                padding-left: 17px;
+            }
+        </code></pre>
+        <div class="sprite-imgs">
+            <span class="link_view" title="阅读次数"><a href="/yuzhongzi81/article/details/78689913" title="阅读次数">阅读</a>(95)</span>
+            <span class="link_comments" title="评论次数"><a href="/yuzhongzi81/article/details/78689913#comments" title="评论次数">评论</a>(0)</span>
+        </div>
+    </div>
+
+    <script>
+        var one = document.querySelector('#one');
+        var twox = document.querySelector('#twox');
+        var twoy = document.querySelector('#twoy');
+        var twox2 = document.querySelector('#twox2');
+        var twoValue = document.querySelector('#twoValue');
+        var twoValue1 = document.querySelector('#twoValue1');
+        var twoValue2 = document.querySelector('#twoValue2');
+        var oneDisplay = document.querySelector('#oneDisplay');
+        var twoDisplay = document.querySelector('#twoDisplay');
+        var twoDisplay2 = document.querySelector('#twoDisplay2');
+        var twoDisplay3 = document.querySelector('#twoDisplay3');
+
+        one.addEventListener('change', function(e) {
+            var value = e.target.value;
+            oneDisplay.style.backgroundPosition = value;
+        });
+
+        twox.addEventListener('change', function(e) {
+            var value = e.target.value;
+            twoDisplay.style.backgroundPositionX = value;
+        });
+
+        twoy.addEventListener('change', function(e) {
+            var value = e.target.value;
+            twoDisplay.style.backgroundPositionY = value;
+        });
+
+        twox2.addEventListener('change', function(e) {
+            var value = e.target.value;
+            var value2 = twoValue.value;
+
+            if (value === 'left' || value === 'right') {
+                twoDisplay2.style.backgroundPosition = value + ' ' + value2;
+            } else {
+                twoDisplay2.style.backgroundPosition = value2 + ' ' + value;
+            }
+        });
+
+        twoValue.addEventListener('change', function(e) {
+            var value = e.target.value;
+            var value1 = twox2.value;
+
+            if (value1 === 'left' || value1 === 'right') {
+                twoDisplay2.style.backgroundPosition = value1 + ' ' + value;
+            } else {
+                twoDisplay2.style.backgroundPosition = value + ' ' + value1;
+            }
+        });
+
+        twoValue1.addEventListener('change', function(e) {
+            var value = e.target.value;
+            var value2 = twoValue2.value;
+
+            twoDisplay3.style.backgroundPosition = value + ' ' + value2;
+        });
+
+        twoValue2.addEventListener('change', function(e) {
+            var value = e.target.value;
+            var value1 = twoValue1.value;
+
+            twoDisplay3.style.backgroundPosition = value1 + ' ' + value;
+        });
+    </script>
+</body>
+</html>

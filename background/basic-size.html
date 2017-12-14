@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>background size</title>
+    <style>
+        pre {
+            white-space: pre-line;
+        }
+        .area {
+            margin-right: 20px;
+            margin-bottom: 20px;
+        }
+        .display {
+            margin-top: 10px;
+            border: 1px dotted darkblue;
+            width: 800px;
+            height: 500px;
+            background: url('../images/ylj.jpeg') no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        <pre>
+            位图：例如jpeg,一般具有自身尺寸和自身比例
+            矢量图： 例如svg,一般不需要自身尺寸和自身比例。如果有，那么一定是既有自身尺寸，又有自身比例
+            css渐变图：没有自身尺寸和比例
+            element: 拥有element元素的尺寸和比例
+        </pre>
+    </p>
+    <p>下面示例：图片尺寸: 700 x 466  容器尺寸: 800 x 500</p>
+    <div class="area">
+        <p>
+            <pre>
+                contain: 最大限度填充背景区域，但是不能被裁剪，因此例子中的图片会适应高度放大
+                cover: 填满背景容器区域，图片可以被裁剪，因此例子中的图片会适应宽度放大
+                auto: 如果图片有自身尺寸，则按照自身尺寸展示，可以看到下面的例子中图片不会撑满容器
+                      如果图片没有自身尺寸并且没有自身比例，那么图片会填充整个背景容器，图片可能会被拉伸变形
+                      如果图片没有自身尺寸，但是有自身比例，那么按照'contain'来展示图片
+                      如果图片只有一个尺寸，并且有自身比例，那么另一个尺寸会通过比例计算出来
+                      如果图片只有一个尺寸，没有自身比例，那么另一个尺寸就是图片容器的尺寸
+            </pre>
+        </p>
+        <label>单个值</label><br/>
+        <select name="one" id="one">
+            <option value="contain">contain</option>
+            <option value="cover">cover</option>
+            <option value="auto" selected>auto</option>
+        </select>
+        <div class="display" id="oneDisplay"></div>
+    </div>
+    <div class="area">
+        <p>根据自身比例来，如果存在自身比例，那么为auto的值会根据给定的值来计算，如果没有自身比例，那么另一个值为图片容器尺寸</p>
+        <p>若值为百分比，那么会根据图片容器尺寸先折算成具体尺寸，然后再根据比例计算另一边的尺寸</p>
+        <p>如果backgound-attachment为fixed时，图片容器尺寸为当前视图窗口</p>
+        <label>两个值(一个为'auto'，另一个数值)</label><br/>
+        <input type="text" class="two-value" id="twoValue">
+        <div class="display" id="twoDisplay1"></div>
+    </div>
+    <div class="area">
+        <p>按照具体给定的尺寸显示，参看上面解释</p>
+        <p>图片可能会被拉伸</p>
+        <label>两个值(数值)</label><br/>
+        <input type="text" class="two-value" id="twoValue1">
+        <input type="text" class="two-value" id="twoValue2">
+        <div class="display" id="twoDisplay2"></div>
+    </div>
+    <script>
+        var one = document.querySelector('#one');
+        var twoValue = document.querySelector('#twoValue');
+        var twoValue1 = document.querySelector('#twoValue1');
+        var twoValue2 = document.querySelector('#twoValue2');
+
+        var oneDisplay = document.querySelector('#oneDisplay');
+        var twoDisplay1 = document.querySelector('#twoDisplay1');
+        var twoDisplay2 = document.querySelector('#twoDisplay2');
+
+        one.addEventListener('change', function(e) {
+            var value = e.target.value;
+            oneDisplay.style.backgroundSize = value;
+        });
+
+        twoValue.addEventListener('change', function(e) {
+            var value = e.target.value;
+            twoDisplay1.style.backgroundSize = 'auto ' + value;
+        });
+
+        twoValue1.addEventListener('change', function(e) {
+            var value = e.target.value;
+            var value2 = twoValue2.value;
+            twoDisplay2.style.backgroundSize = value + ' ' + value2;
+        });
+
+        twoValue2.addEventListener('change', function(e) {
+            var value = e.target.value;
+            var value1 = twoValue1.value;
+            twoDisplay2.style.backgroundSize = value1 + ' ' + value;
+        });
+    </script>
+</body>
+</html>

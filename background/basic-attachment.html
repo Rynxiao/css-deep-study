@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>background attachment</title>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+        .container {
+            background: url('http://p0xmvstv1.bkt.clouddn.com/css/background/ylj.jpeg');
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+            background-position: center top;
+            height: 100%;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <select name="attachment" id="attachment">
+        <option value="scroll">scroll</option>
+        <option value="fixed">fixed</option>
+        <option value="local">local</option>
+    </select>
+    <div class="container" id="container">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam doloremque asperiores labore dicta, dolorum distinctio recusandae, cupiditate facere molestiae tenetur in sint veniam ullam ratione maiores quae eveniet ab. Perspiciatis!</p>
+        <br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam doloremque asperiores labore dicta, dolorum distinctio recusandae, cupiditate facere molestiae tenetur in sint veniam ullam ratione maiores quae eveniet ab. Perspiciatis!</p>
+        <br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam doloremque asperiores labore dicta, dolorum distinctio recusandae, cupiditate facere molestiae tenetur in sint veniam ullam ratione maiores quae eveniet ab. Perspiciatis!</p>
+        <br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam doloremque asperiores labore dicta, dolorum distinctio recusandae, cupiditate facere molestiae tenetur in sint veniam ullam ratione maiores quae eveniet ab. Perspiciatis!</p>
+        <br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam doloremque asperiores labore dicta, dolorum distinctio recusandae, cupiditate facere molestiae tenetur in sint veniam ullam ratione maiores quae eveniet ab. Perspiciatis!</p>
+        <br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam doloremque asperiores labore dicta, dolorum distinctio recusandae, cupiditate facere molestiae tenetur in sint veniam ullam ratione maiores quae eveniet ab. Perspiciatis!</p>
+        <br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam doloremque asperiores labore dicta, dolorum distinctio recusandae, cupiditate facere molestiae tenetur in sint veniam ullam ratione maiores quae eveniet ab. Perspiciatis!</p>
+        <br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam doloremque asperiores labore dicta, dolorum distinctio recusandae, cupiditate facere molestiae tenetur in sint veniam ullam ratione maiores quae eveniet ab. Perspiciatis!</p>
+        <br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam doloremque asperiores labore dicta, dolorum distinctio recusandae, cupiditate facere molestiae tenetur in sint veniam ullam ratione maiores quae eveniet ab. Perspiciatis!</p>
+        <br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam doloremque asperiores labore dicta, dolorum distinctio recusandae, cupiditate facere molestiae tenetur in sint veniam ullam ratione maiores quae eveniet ab. Perspiciatis!</p>
+        <br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam doloremque asperiores labore dicta, dolorum distinctio recusandae, cupiditate facere molestiae tenetur in sint veniam ullam ratione maiores quae eveniet ab. Perspiciatis!</p>
+        <br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam doloremque asperiores labore dicta, dolorum distinctio recusandae, cupiditate facere molestiae tenetur in sint veniam ullam ratione maiores quae eveniet ab. Perspiciatis!</p>
+        <br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam doloremque asperiores labore dicta, dolorum distinctio recusandae, cupiditate facere molestiae tenetur in sint veniam ullam ratione maiores quae eveniet ab. Perspiciatis!</p>
+        <br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam doloremque asperiores labore dicta, dolorum distinctio recusandae, cupiditate facere molestiae tenetur in sint veniam ullam ratione maiores quae eveniet ab. Perspiciatis!</p>
+        <br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam doloremque asperiores labore dicta, dolorum distinctio recusandae, cupiditate facere molestiae tenetur in sint veniam ullam ratione maiores quae eveniet ab. Perspiciatis!</p>
+        <br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam doloremque asperiores labore dicta, dolorum distinctio recusandae, cupiditate facere molestiae tenetur in sint veniam ullam ratione maiores quae eveniet ab. Perspiciatis!</p>
+        <br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam doloremque asperiores labore dicta, dolorum distinctio recusandae, cupiditate facere molestiae tenetur in sint veniam ullam ratione maiores quae eveniet ab. Perspiciatis!</p>
+        <br>
+    </div>
+    <script>
+        var attachment = document.querySelector('#attachment');
+        var container = document.querySelector('#container');
+
+        attachment.addEventListener('change', function(e) {
+            var target = e.target;
+            container.style.backgroundAttachment = target.value;
+        });
+    </script>
+</body>
+</html>
